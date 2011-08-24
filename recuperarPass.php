@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("includes/connection.php");
 
 $link = mysql_connect($_SESSION["servidor"], $_SESSION["root"],$_SESSION["claveBD"]);
 mysql_select_db($_SESSION["basededatos"], $link); 

@@ -2,7 +2,7 @@
 session_start();
 include("clases/clsusuario.php");
 include("clases/clsSubGrupo.php");
-include("conexion.php");
+include("includes/connection.php");
 //validar sesion
 if($_SESSION["usuario"]=="")
  {

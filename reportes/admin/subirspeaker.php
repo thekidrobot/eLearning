@@ -16,7 +16,7 @@ if($_SESSION["usuario"]=="")
 ?>
 <html>
 <head>
-<title>:: nucomm.tv ::</title>
+<title><?=$website_name ?></title>
 <link rel="stylesheet" href="../css/INDEX.CSS">
 </script>
 </head>

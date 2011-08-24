@@ -1,5 +1,5 @@
 <?
-include("conexion.php");
+include("includes/connection.php");
 include("clases/clsVideos.php");
 include("clases/clsSubGrupo.php");
 

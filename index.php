@@ -1,5 +1,5 @@
 <?
-include("conexion.php");
+include("includes/connection.php");
 include("clases/clsusuario.php");
 
 session_start();
@@ -56,17 +56,7 @@ if($_POST["ingresar"]!="")
 
 ?>
 <html>
-<head>
-<title>:: nucomm.tv ::</title>
-<link rel="stylesheet" href="css/INDEX.CSS">
-<script language="javascript" src="js.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">
-<!--
-body {
-	background-color: #050505;
-}
--->
-</style></head>
+<?php include("includes/head.php"); ?>
 <body leftmargin="0" topmargin="0" background="" >
 <br>
 <table width="1024" border="0" align="center" cellpadding="0" cellspacing="0">

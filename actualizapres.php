@@ -2,7 +2,7 @@
 ini_set('allow_url_fopen' , '1');
 ini_set('allow_url_include' , '1');
 session_start();
-include("conexion.php");
+include("includes/connection.php");
 include("clases/clsVideos.php");
 
 session_start();
@@ -31,7 +31,7 @@ if($_SESSION["usuario"]=="")
 ?>
 <html>
 <head>
-<title>:: nucomm.tv ::</title>
+<title><?=$website_name ?></title>
 <link rel="stylesheet" href="INDEX.CSS">
 <script language="javascript" src="js.js">
 </script>

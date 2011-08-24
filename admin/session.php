@@ -19,7 +19,7 @@ if($_SESSION["usuario"]=="")
 
 
 
-include("../conexion.php");
+include("../includes/connection.php");
 
 include("../clases/clsusuario.php");
 include("../clases/clsSubGrupo.php");

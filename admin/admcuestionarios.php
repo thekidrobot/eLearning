@@ -1,5 +1,5 @@
 <?
-include("conexion.php");
+include("includes/connection.php");
 include("clases/clsexamen.php");
 
 session_start();

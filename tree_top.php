@@ -1,5 +1,0 @@
-<?
-
-$tree->drawTreeTop();
-
-?>
