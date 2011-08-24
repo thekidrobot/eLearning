@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_live" value="name:id;datatype:int,name:Nombre;datatype:string,name:mail;datatype:string,name:comentario;datatype:string,name:leido;datatype:string,name:fecha;datatype:timestamp" />
+	<infoitem key="UD_actualizar" value="name:leido;datatype:string" />
+</info>

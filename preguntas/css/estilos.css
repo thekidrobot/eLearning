@@ -1,0 +1,33 @@
+.tahoma_11 {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000;
+}
+.tahoma_11_titulos {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000;
+	font-weight: bold;
+}
+.trebuchet_15 {
+	font-family: "Trebuchet MS";
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #666;
+}
+.tahoma_11_borde {
+	font-family: Tahoma;
+	font-size: 11px;
+	border-bottom-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: dotted;
+	border-left-style: none;
+	border-bottom-color: #666;
+}
+
+.bold{
+	font-weight:bold;
+}

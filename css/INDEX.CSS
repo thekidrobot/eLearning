@@ -1,0 +1,296 @@
+BODY { 
+scrollbar-face-color: F2F2F2; 
+scrollbar-highlight-color: cccccc; 
+scrollbar-3dlight-color: F2F2F2; 
+scrollbar-darkshadow-color: F2F2F2; 
+scrollbar-shadow-color: cccccc; 
+scrollbar-arrow-color: gray; 
+scrollbar-track-color: white; 
+} 
+.borde_gris_debajo {
+	border-bottom-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-bottom-color: #EBE9ED;
+	background-color: #DFDFDF;
+}
+
+
+a:hover {  color: #000000; text-decoration: underline}
+.link {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333;}
+.vlink {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #FF8C40;}
+.alink {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #FF8C40;}
+.link2 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333; text-decoration:none;}
+.link3 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333;}
+.link4 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #FFFFFF; text-decoration:none;}
+
+a:link10 {  color: #000000; text-decoration: underline}
+.link10 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333;text-decoration:none;}
+
+
+.linkpagina:hover {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #EC6209; text-decoration:none}
+
+.linkpagina {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #000000; text-decoration:none}
+
+.body-text0 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9.5px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333; text-decoration: none}
+.body-text1 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333; text-decoration: none}
+.body-text2 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12.5px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333; text-decoration: none}
+.body-text44 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; text-transform: none; color: #333333; text-decoration: none}
+
+.body-title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #333333;
+	text-decoration: none
+}
+.titulo_curso {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	font-weight: bold;
+	background-image: url(imagenes/degradado.jpg);
+	background-repeat:  repeat-x;
+}
+
+.home-title {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; line-height: normal; font-weight: bold; font-variant: normal; text-transform: none; color: #333333; text-decoration: none}
+.index-titles {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9px; font-style: normal; line-height: normal; font-weight: bold; font-variant: normal; text-transform: none; color: #333333; text-decoration: none}
+.bg-color {scrollbars:no; border:1;  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; background-color:#FF0000; line-height: normal; font-weight: bold; font-variant: normal; text-transform: none; color: #FFFFFF; text-decoration: none}
+.INPUT {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	text-decoration: none;
+}
+.stepactive {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.controles1 {background-color:white;font-family: Verdana,Arial, Helvetica, sans-serif;font-size: 12px;border-style:groove;}
+
+.stepinactive {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.stepinactive:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.styleh6 {font-size: xx-small}.menu {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #E5E5E5;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+}
+.menu_derecha {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #E5E5E5;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+}
+.text10 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+.bordes_gris {
+	border: 1px solid #999999;
+	background-color: #E8E8E8;
+}
+.borde_gris_abajo_fuente {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #EBE9ED;
+}
+.borde_gris_fuente10 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #EBE9ED;
+}
+.verdana_red {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FF0000;
+}
+.tahoma_11_center {
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+}
+.tahoma_11_light {
+	font-family: Tahoma;
+	font-size: 11px;
+}
+.tahoma_11_derecha {
+	font-family: Tahoma;
+	font-weight: bold;
+	color: #030180;
+	text-align: right;
+	font-size: 11px;
+}
+.bordes {
+	border: 1px solid #D6D6D6;
+}
+.borde_gris_debajo_tahoma {
+	border-bottom-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-bottom-color: #EBE9ED;
+	font-family: Tahoma;
+	font-size: 11px;
+}
+
+.scroll_checkboxes {
+    height: 100px;
+	width:300px;
+    padding-top: 5px;
+    overflow: auto;
+	font-size: 11px;
+	display:inline;
+	position:relative;
+}
+.stepactive_gris {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #999;
+	text-decoration: none;
+}
+.tahoma_11_azul {
+	font-family: Tahoma;
+	font-weight: bold;
+	color: #030180;
+	text-align: left;
+	font-size: 11px;
+}
+.fondo_tabla_ver {
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: bold;
+	color: #006;
+	background-image: url(../imagenes/pestana_ver.jpg);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.fondo_tabla_material {
+	font-family: Tahoma;
+	font-size: 11px;
+	font-weight: bold;
+	color: #006;
+	background-image: url(../imagenes/material.jpg);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.fondo_tabla_test {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000;
+	background-image: url(../imagenes/pestana_pres.jpg);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.borde_azul {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CECECE;
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #FFF;
+}
+.rights {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #D6D6D6;
+	text-align: left;
+}
+
+.bordes_blancos {
+	border: 1px solid #FFF;
+}
+.repeat_left {
+	background-image: url(../imagenes/repeat_left.jpg);
+	background-repeat: repeat-y;
+}
+.repeat_right {
+	background-image: url(../imagenes/repeat_right.jpg);
+	background-repeat: repeat-y;
+	background-position: right;
+}
+.tahoma_13_azul {
+	font-family: Tahoma;
+	font-weight: bold;
+	color: #030180;
+	text-align: left;
+	font-size: 13px;
+}
+.tahoma_11 {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000;
+}
+.Arial-28 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: #000;
+}
+
+.scroll_checkboxes {
+    height: 100px;
+    padding: 5px;
+    overflow: auto;
+    border: 1px solid #ccc
+}
+
+ul{
+list-style:none;
+padding:0px 0px 0px 10px;
+}
+
+li{
+list-style:none;
+}
