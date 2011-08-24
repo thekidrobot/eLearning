@@ -56,102 +56,76 @@ if($_POST["ingresar"]!="")
 
 ?>
 <html>
-<?php include("includes/head.php"); ?>
-<body leftmargin="0" topmargin="0" background="" >
-<br>
-<table width="1024" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tr>
-    <td><img src="imagenes/top.jpg" width="1024" height="176"></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><form name="formProceso" action="index.php" method="post" onSubmit="return validaAcceso()">
-      <input type="hidden" name="ingresar" value="1">
-      <br>
-      <table width="363" height="203" border="0" align="center" bgcolor="#EEEEEE" class="bordes_gris">
-        <tr>
-          <td colspan="3" class="tahoma_11_center">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="3" class="tahoma_11_center">::: USUARIOS REGISTRADOS :::</td>
-        </tr>
-        <tr>
-          <td colspan="3" class="text10">&nbsp;</td>
-        </tr>
-        <tr>
-          <td colspan="3" align="center" class="link10"><span class="text10"><img src="imagenes/usuarios_regis2.png" width="268" height="40"></span></td>
-        </tr>
-        <tr>
-          <td class="link10">&nbsp;</td>
-          <td class="text10">&nbsp;</td>
-          <td class="body-text1">&nbsp;</td>
-        </tr>
-        <tr>
-          <td width="81" class="link10">&nbsp;</td>
-          <td width="39" class="tahoma_11_light">Usuario</td>
-          <td width="227" class="body-text1">
-			<input type="text" name="valorLogin" style="width:150"></td>
-        </tr>
-        <tr>
-          <td class="link10">&nbsp;</td>
-          <td class="tahoma_11_light"> Contrase&ntilde;a </td>
-          <td class="body-text1">
-			<input type="password" name="valorClave" style="width:150"></td>
-        </tr>
-        <tr>
-          <td class="link10">&nbsp;</td>
-          <td class="tahoma_11_light"> Modo </td>
-          <td class="text10"><select name="valorModo" class="tahoma_11_light" style="width:150">
-            <option value="2" selected>Usuario</option>
-            <option value="1">Administrador</option>
-          </select></td>
-        </tr>
-        <tr>
-          <td rowspan="2" align="right" class="body-text1">&nbsp;</td>
-          <td rowspan="2" align="right" class="body-text1"><br>
+  <?php include("includes/head.php"); ?>
+  <body>
+    <div id="header">
+      <div id="logo">
+        <h1><a href="#">Compromise </a></h1>
+      </div>
+    </div>
+    <!-- end #header -->
+    <div id="menu">
+      <ul>
+        <li class="first"><a href="index.php">Home</a></li>
+      </ul>
+    </div>
+    <!-- end #menu -->
+    <div id="wrapper">
+      <div class="btm">
+        <div id="page">
+          <div id="content">
+			
+            <form name="formProceso" action="index.php" method="post" onSubmit="return validaAcceso()">
+            <input type="hidden" name="ingresar" value="1">
             <br>
-            <br>
-            <br>
-            <br>
-            <br></td>
-          <td align="right" valign="top" class="text10"><div align="left">
-            <p>
-              <input type="image" src="imagenes/ingresar.png" align="left">
-            </p>
-          </div>
-            <div align="left"></div></td>
-        </tr>
-        <tr>
-          <td align="right" valign="top" class="text10"><div align="left"><span class="verdana_red">
-            <?=$msg?>
-          </span></div></td>
-        </tr>
-        <tr>
-          <td colspan="3" align="center" class="tahoma_11">Aun no est&aacute; registrado?<a href="registro.php"> haga click ac&aacute;</a></td>
-        </tr>
-		<tr>
-          <td colspan="3" align="center" class="tahoma_11">&nbsp;</td>
-        </tr>
-      </table>
-    </form></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="center">&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="center" bgcolor="#050505">&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="center" bgcolor="#050505"><span class="rights">© 2011 nucomm.tv | All Rights Reserved</span></td>
-  </tr>
-  <tr>
-    <td bgcolor="#050505"><div align="center" class="stepactive"></div></td>
-  </tr>
-</table>
+              <table>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>Usuario</td>
+                  <td><input type="text" name="valorLogin"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td> Contrase&ntilde;a </td>
+                  <td> <input type="password" name="valorClave"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td> Modo </td>
+                  <td><select name="valorModo">
+                        <option value="2" selected>Usuario</option>
+                        <option value="1">Administrador</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div align="left">
+                      <input type="image" src="imagenes/ingresar.png" align="left">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span><?=$msg?></span></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="center" class="tahoma_11">Aun no est&aacute; registrado?<a href="registro.php"> haga click ac&aacute;</a></td>
+                </tr>
+              </table>
+            </form>
+          
+        </div>
+		<!-- end #content -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+</div>
+</div>
+	<div id="footer">
+		<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+	</div>
+	<!-- end #footer -->
 </body>
-</html>
+</html> 
