@@ -4,20 +4,20 @@ include("ps_pagination.php");
 
 class clsusuario
 {
-/////////////////////////////////////////////////////////////////////////////////////////////
-function validacionAdministrador($Usuario,$Clave)
-{
-$valido=0;
-$link = mysql_connect($_SESSION["servidor"], $_SESSION["root"],$_SESSION["claveBD"]); 
-mysql_select_db($_SESSION["basededatos"], $link); 
-$sql="SELECT * FROM administrador WHERE Clave='" . $Clave . "' AND Login='" . $Usuario . "' ";
-$result = mysql_query($sql, $link);
-
-while ($row = mysql_fetch_array($result))
-	 {
+ /////////////////////////////////////////////////////////////////////////////////////////////
+ function validacionAdministrador($Usuario,$Clave)
+ {
+ $valido=0;
+ $link = mysql_connect($_SESSION["servidor"], $_SESSION["root"],$_SESSION["claveBD"]); 
+ mysql_select_db($_SESSION["basededatos"], $link); 
+ $sql="SELECT * FROM administrador WHERE Clave='" . $Clave . "' AND Login='" . $Usuario . "' ";
+ $result = mysql_query($sql, $link);
+ 
+ while ($row = mysql_fetch_array($result))
+ {
 		$valido=$row["IdAdministrador"];
-	 }
-return $valido;
+ }
+ return $valido;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////
 function validacionUsuario($Usuario,$Clave)

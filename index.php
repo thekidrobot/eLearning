@@ -12,47 +12,43 @@ $_SESSION["idusuario"]="";		// almacena el id del usuario en sesion
 $objUsuario=new clsusuario();
 $msg="";
 
-///ingresar al sistema
-if($_POST["ingresar"]!="")
- {
-   if($_POST["valorModo"]=="1")
-    {
-	   //administrador
-	   $clave=$_POST["valorClave"];
-	   $valido=$objUsuario->validacionAdministrador($_POST["valorLogin"],$clave);
+if(isset($_POST["Login"]))
+{
+  if($_POST["valorModo"]=="1")
+  {
+    //administrador
+    $clave=$_POST["valorClave"];
+    $valido=$objUsuario->validacionAdministrador($_POST["valorLogin"],$clave);
 
-	   if($valido!="0")
-		{
-		  //valido
-		  $_SESSION["usuario"]=$_POST["valorLogin"];
-		  $_SESSION["idusuario"]=$valido;
-		  ?>
-		  <script language="javascript">
-		  document.location="admin/menuadmin.php";
-		  </script>
-		  <?
-		}
-	}
-   else
+    if($valido!="0")
     {
-	   //usuario
-	   $valido=$objUsuario->validacionUsuario($_POST["valorLogin"],$_POST["valorClave"]);
+      //valido
+      $_SESSION["usuario"]=$_POST["valorLogin"];
+      $_SESSION["idusuario"]=$valido;
 
-	   if($valido!="0")
-		{
-		  //valido
-		  $_SESSION["usuario"]=$_POST["valorLogin"];
-		  $_SESSION["idusuario"]=$valido;
-		  ?>
-		  <script language="javascript">
-		  document.location="usexamen.php";
-		  </script>
-		  <?
-		}
-	}
-    
-	$msg="El usuario es invalido";
- }
+      //I cannot use the function here. Requires validation first.
+      $filename = 'admin/menuadmin.php';
+      if (!headers_sent()) header('Location: '.$filename);
+      else echo '<meta http-equiv="refresh" content="0;url='.$filename.'" />';
+    }
+  }
+  else
+  {
+    //usuario
+    $valido=$objUsuario->validacionUsuario($_POST["valorLogin"],$_POST["valorClave"]);
+
+    if($valido!="0")
+    {
+      //valido
+      $_SESSION["usuario"]=$_POST["valorLogin"];
+      $_SESSION["idusuario"]=$valido;
+      $filename = 'usexamen.php';
+      if (!headers_sent()) header('Location: '.$filename);
+      else echo '<meta http-equiv="refresh" content="0;url='.$filename.'" />';
+    }
+  }
+  $msg="El usuario es invalido";
+}
 
 ?>
 <html>
@@ -73,11 +69,8 @@ if($_POST["ingresar"]!="")
     <div id="wrapper">
       <div class="btm">
         <div id="page">
-          <div id="content">
-			
+          <div id="content">			
             <form name="formProceso" action="index.php" method="post" onSubmit="return validaAcceso()">
-            <input type="hidden" name="ingresar" value="1">
-            <br>
               <table>
                 <tr>
                   <td>&nbsp;</td>
@@ -98,15 +91,13 @@ if($_POST["ingresar"]!="")
                       </select>
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <div align="left">
-                      <input type="image" src="imagenes/ingresar.png" align="left">
-                    </div>
+                <tr align="center">
+                  <td colspan="3">
+                    <input type="submit" value="Login" name="Login">
                   </td>
                 </tr>
-                <tr>
-                  <td>
+                <tr align="center">
+                  <td colspan="3">
                     <span><?=$msg?></span></div>
                   </td>
                 </tr>
@@ -115,7 +106,6 @@ if($_POST["ingresar"]!="")
                 </tr>
               </table>
             </form>
-          
         </div>
 		<!-- end #content -->
 		<div style="clear: both;">&nbsp;</div>
