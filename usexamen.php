@@ -2,7 +2,6 @@
 include("functions/general_functions.php");
 
 include("clases/clsusuario.php");
-include("clases/clsusuario.php");
 include("clases/clsSubGrupo.php");
 
 ///objetos

@@ -84,9 +84,8 @@ if($_POST["ingresar"]!="")
 					<td><input type="password" name="valorClave"></td>
 				 </tr>
 				 <tr>
-					<td align="right">&nbsp;</td>
-					<td align="right">
-					 <input type="image" src="imagenes/ingresar.jpg"><?=$msg?>
+					<td align="center" colspan="2">
+					 <input type="submit" value="Ingresar"><?=$msg?>
 					</td>
 				 </tr>
 				</table>

@@ -40,18 +40,30 @@
 		$row_rsPass = mysql_fetch_assoc($rsPass);
 		$totalRows_rsPass = mysql_num_rows($rsPass);
 	
-		$email = $row_rsPass['Correo'].
-		$subject = "Servicio de envio de password";
-		$message = "Su usuario es: ".$row_rsPass['Usuario'].", Su password es: ".$row_rsPass['Password'];
-  
-		if (mail($email,$subject,$message))
-		{
-			$mensaje = "mensaje enviado a $email.";
-		}
-		else
-		{
-			$mensaje = "Error - mensaje no enviado.";
-		}
+		if($totalRows_rsPass > 0)
+    {
+      $email_admin = "noreply@nucomm.tv";
+      
+      $headers='Content-type: text/html; charset=iso-8859-1'."\r\n";
+      $headers.='From:'. $email_admin ."\r\n";
+    
+      $email = trim($row_rsPass['Correo']);
+      $subject = "Servicio de envio de password";
+      $message = "Su usuario es: ".$row_rsPass['Usuario'].", Su password es: ".$row_rsPass['Password'];
+      
+      if (mail($email,$subject,$message,$headers))
+      {
+        $mensaje = "mensaje enviado a $email.";
+      }
+      else
+      {
+        $mensaje = "Error - mensaje no enviado.";
+      }	
+    }
+    else
+    {
+      $mensaje = "El correo seleccionado no esta en uso.";
+    }
 
 }
 

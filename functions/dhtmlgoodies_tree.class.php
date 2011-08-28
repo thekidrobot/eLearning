@@ -9,14 +9,14 @@ You are free to use this script as long as this copyright message is kept intact
 
 */
 
-class dhtmlgoodies_tree{
-	
+class dhtmlgoodies_tree
+{
+
 	var $elementArray = array();
 	var $nameOfCookie = "dhtmlgoodies_expanded"; // Name of the cookie where the expanded nodes are stored.
 	
 	function dhtmlgoodies_tree()
 	{
-		
 		
 	}
 
@@ -24,45 +24,59 @@ class dhtmlgoodies_tree{
 	{
 		?>
 		<style type="text/css">
-		/*
-		
-		This is one of the free scripts from www.dhtmlgoodies.com
-		You are free to use this script as long as this copyright message is kept intact
-		
-		(c) Alf Magne Kalleland, http://www.dhtmlgoodies.com - 2005
-		
-		*/		
-		#dhtmlgoodies_tree li{
-			list-style-type:none;	
-			font-family: arial;
-			font-size:11px;
-		}
-		#dhtmlgoodies_topNodes{
-			margin-left:0px;
-			padding-left:0px;
-		}
-		#dhtmlgoodies_topNodes ul{
-			margin-left:20px;
-			padding-left:0px;
-			display:none;
-		}
-		#dhtmlgoodies_tree .tree_link{
-			line-height:13px;
-			padding-left:2px;
+      /*
+      This is one of the free scripts from www.dhtmlgoodies.com
+      You are free to use this script as long as this copyright message is kept intact
+      
+      (c) Alf Magne Kalleland, http://www.dhtmlgoodies.com - 2005
+      */
+      #dhtmlgoodies_tree{
+        margin-top:15px;
+        margin-bottom:10px;
+        padding:10px 0px 5px 0px;
+        border-bottom: 1px dashed #BCBCBC;
+        border-top: 1px dashed #BCBCBC;
+      }
 
-		}
-		#dhtmlgoodies_tree img{
-			padding-top:2px;
-		}
-		#dhtmlgoodies_tree a{
-			color: #000000;
-			text-decoration:none;
-		}
-		.activeNodeLink{
-			background-color: #316AC5;
-			color: #FFFFFF;
-			font-weight:bold;
-		}
+      #dhtmlgoodies_tree li{
+        list-style-type:none;	
+        font-family: arial;
+        font-size:11px;
+        padding-bottom:5px;
+      }
+  
+      #dhtmlgoodies_topNodes{
+        margin-left:0px;
+        padding-left:0px;
+        padding-top:5px;
+      }
+  
+      #dhtmlgoodies_topNodes ul{
+        margin-left:10px;
+        padding-left:0px;
+        display:none;
+      }
+  
+      #dhtmlgoodies_tree .tree_link{
+        line-height:13px;
+        padding-left:2px;
+      }
+  
+      #dhtmlgoodies_tree img{
+        padding-top:2px;
+      }
+  
+      #dhtmlgoodies_tree a{
+        color: #000000;
+        text-decoration:none;
+        text-transform:capitalize;
+      }
+  
+      .activeNodeLink{
+        background-color: #316AC5;
+        color: #FFFFFF;
+        font-weight:bold;
+      }
 		</style>		
 		<?php		
 	}
@@ -71,56 +85,59 @@ class dhtmlgoodies_tree{
 	{
 		?>
 		<script type="text/javascript">
-/************************************************************************************************************
-Folder tree - PHP
-Copyright (C) 2005 - 2009  DTHMLGoodies.com, Alf Magne Kalleland
-
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
-
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-
-Dhtmlgoodies.com., hereby disclaims all copyright interest in this script
-written by Alf Magne Kalleland.
-
-Alf Magne Kalleland, 2005 - 2009
-Owner of DHTMLgoodies.com
+    /************************************************************************************************************
+    Folder tree - PHP
+    Copyright (C) 2005 - 2009  DTHMLGoodies.com, Alf Magne Kalleland
+    
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+    
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+    
+    Dhtmlgoodies.com., hereby disclaims all copyright interest in this script
+    written by Alf Magne Kalleland.
+    
+    Alf Magne Kalleland, 2005 - 2009
+    Owner of DHTMLgoodies.com
+      
+    ************************************************************************************************************/	
 	
-************************************************************************************************************/	
-	
-		var plusNode = 'images/dhtmlgoodies_plus.gif';
-		var minusNode = 'images/dhtmlgoodies_minus.gif';
+		var plusNode = 'images/plus.png';
+		var minusNode = 'images/minus.png';
 		
 		var nameOfCookie = '<?php echo $this->nameOfCookie; ?>';
 		<?php
 		$cookieValue = "";
 		if(isset($_COOKIE[$this->nameOfCookie]))$cookieValue = $_COOKIE[$this->nameOfCookie];		
-		echo "var initExpandedNodes =\"".$cookieValue."\";\n";
+      echo "var initExpandedNodes =\"".$cookieValue."\";\n";
 		?>		
 		/*
 		These cookie functions are downloaded from 
 		http://www.mach5.com/support/analyzer/manual/html/General/CookiesJavaScript.htm
 		*/
-		function Get_Cookie(name) { 
-		   var start = document.cookie.indexOf(name+"="); 
-		   var len = start+name.length+1; 
-		   if ((!start) && (name != document.cookie.substring(0,name.length))) return null; 
-		   if (start == -1) return null; 
-		   var end = document.cookie.indexOf(";",len); 
-		   if (end == -1) end = document.cookie.length; 
-		   return unescape(document.cookie.substring(len,end)); 
-		} 
+		function Get_Cookie(name)
+    { 
+      var start = document.cookie.indexOf(name+"="); 
+      var len = start+name.length+1; 
+      if ((!start) && (name != document.cookie.substring(0,name.length))) return null; 
+      if (start == -1) return null; 
+      var end = document.cookie.indexOf(";",len); 
+      if (end == -1) end = document.cookie.length; 
+      return unescape(document.cookie.substring(len,end)); 
+		}
+    
 		// This function has been slightly modified
-		function Set_Cookie(name,value,expires,path,domain,secure) { 
+		function Set_Cookie(name,value,expires,path,domain,secure)
+    { 
 			expires = expires * 60*60*24*1000;
 			var today = new Date();
 			var expires_date = new Date( today.getTime() + (expires) );
@@ -141,8 +158,8 @@ Owner of DHTMLgoodies.com
 			var images = treeObj.getElementsByTagName('IMG');
 			for(var no=0;no<images.length;no++){
 				if(images[no].className=='tree_plusminus' && images[no].src.indexOf(plusNode)>=0)expandNode(false,images[no]);
-			}
-		}
+      }
+    }
 		function collapseAll()
 		{
 			var treeObj = document.getElementById('dhtmlgoodies_tree');
@@ -151,7 +168,6 @@ Owner of DHTMLgoodies.com
 				if(images[no].className=='tree_plusminus' && images[no].src.indexOf(minusNode)>=0)expandNode(false,images[no]);
 			}
 		}
-		
 		
 		function expandNode(e,inputNode)
 		{
@@ -171,15 +187,13 @@ Owner of DHTMLgoodies.com
 				initExpandedNodes = initExpandedNodes.replace(',' + inputId+',',',');
 				initExpandedNodes = initExpandedNodes + inputId + ',';
 				
-			}else{
+			}
+      else{
 				subUl[0].style.display = '';
 				inputNode.src = plusNode;	
 				initExpandedNodes = initExpandedNodes.replace(','+inputId+',',',');			
 			}
-			Set_Cookie(nameOfCookie,initExpandedNodes,60);
-			
-			
-			
+			Set_Cookie(nameOfCookie,initExpandedNodes,60);			
 		}
 		
 		function initTree()
@@ -219,33 +233,30 @@ Owner of DHTMLgoodies.com
 		}
 		
 		window.onload = initTree;
-		
 		</script>	
 		<?php
-		
 	}
 	
+	/*	This function adds elements to the array  */
 	
-	
-	/*
-	This function adds elements to the array
-	*/
-	
-	function addToArray($id,$name,$parentID,$url="",$target="",$imageIcon="images/dhtmlgoodies_folder.gif"){
+	function addToArray($id,$name,$parentID,$url="",$target="",$imageIcon="images/folder-tree.png"){
 		if(empty($parentID))$parentID=0;	
 		$this->elementArray[$parentID][] = array($id,$name,$url,$target,$imageIcon);
 	}
 	
 	function drawSubNode($parentID){
-		if(isset($this->elementArray[$parentID])){			
+		if(isset($this->elementArray[$parentID]))
+    {			
 			echo "<ul>";
-			for($no=0;$no<count($this->elementArray[$parentID]);$no++){
+			for($no=0;$no<count($this->elementArray[$parentID]);$no++)
+      {
 				$urlAdd = "";
-				if($this->elementArray[$parentID][$no][2]){
+				if($this->elementArray[$parentID][$no][2])
+        {
 					$urlAdd = " href=\"".$this->elementArray[$parentID][$no][2]."\"";
 					if($this->elementArray[$parentID][$no][3])$urlAdd.=" target=\"".$this->elementArray[$parentID][$no][3]."\"";	
 				}
-				echo "<li class=\"tree_node\"><img class=\"tree_plusminus\" id=\"plusMinus".$this->elementArray[$parentID][$no][0]."\" src=\"images/dhtmlgoodies_plus.gif\"><img src=\"".$this->elementArray[$parentID][$no][4]."\"><a class=\"tree_link\"$urlAdd>".$this->elementArray[$parentID][$no][1]."</a>";	
+				echo "<li class=\"tree_node\"><img class=\"tree_plusminus\" id=\"plusMinus".$this->elementArray[$parentID][$no][0]."\" src=\"images/plus.png\"><img src=\"".$this->elementArray[$parentID][$no][4]."\"><a class=\"tree_link\"$urlAdd>".$this->elementArray[$parentID][$no][1]."</a>";	
 				$this->drawSubNode($this->elementArray[$parentID][$no][0]);
 				echo "</li>";
 			}			
@@ -253,16 +264,19 @@ Owner of DHTMLgoodies.com
 		}		
 	}
 	
-	function drawTree(){
+	function drawTree()
+  {
 		echo "<div id=\"dhtmlgoodies_tree\">";
 		echo "<ul id=\"dhtmlgoodies_topNodes\">";
-		for($no=0;$no<count($this->elementArray[0]);$no++){
+		for($no=0;$no<count($this->elementArray[0]);$no++)
+    {
 			$urlAdd = "";
-			if($this->elementArray[0][$no][2]){
+			if($this->elementArray[0][$no][2])
+      {
 				$urlAdd = " href=\"".$this->elementArray[0][$no][2]."\"";
 				if($this->elementArray[0][$no][3])$urlAdd.=" target=\"".$this->elementArray[0][$no][3]."\"";	
 			}
-			echo "<li class=\"tree_node\" id=\"node_".$this->elementArray[0][$no][0]."\"><img id=\"plusMinus".$this->elementArray[0][$no][0]."\" class=\"tree_plusminus\" src=\"images/dhtmlgoodies_plus.gif\"><img src=\"".$this->elementArray[0][$no][4]."\"><a class=\"tree_link\"$urlAdd>".$this->elementArray[0][$no][1]."</a>";		
+			echo "<li class=\"tree_node\" id=\"node_".$this->elementArray[0][$no][0]."\"><img id=\"plusMinus".$this->elementArray[0][$no][0]."\" class=\"tree_plusminus\" src=\"images/plus.png\"><img src=\"".$this->elementArray[0][$no][4]."\"><a class=\"tree_link\"$urlAdd>".$this->elementArray[0][$no][1]."</a>";		
 			$this->drawSubNode($this->elementArray[0][$no][0]);
 			echo "</li>";	
 		}	
@@ -270,11 +284,14 @@ Owner of DHTMLgoodies.com
 		echo "</div>";	
 	}
 	
-		function drawTreeTop(){
+	function drawTreeTop()
+  {
 		echo "<div class='link' style='float:right'>";
-		for($no=0;$no<count($this->elementArray[0]);$no++){
+		for($no=0;$no<count($this->elementArray[0]);$no++)
+    {
 			$urlAdd = "";
-			if($this->elementArray[0][$no][2]){
+			if($this->elementArray[0][$no][2])
+      {
 				$urlAdd = " href=\"".$this->elementArray[0][$no][2]."\"";
 				if($this->elementArray[0][$no][3])$urlAdd.=" target=\"".$this->elementArray[0][$no][3]."\"";	
 			}
@@ -284,11 +301,15 @@ Owner of DHTMLgoodies.com
 		echo "</div>";	
 	}
 	
-		function drawSubNodeTop($parentID){
-		if(isset($this->elementArray[$parentID])){	
-			for($no=0;$no<count($this->elementArray[$parentID]);$no++){
+	function drawSubNodeTop($parentID)
+  {
+		if(isset($this->elementArray[$parentID]))
+    {	
+			for($no=0;$no<count($this->elementArray[$parentID]);$no++)
+      {
 				$urlAdd = "";
-				if($this->elementArray[$parentID][$no][2]){
+				if($this->elementArray[$parentID][$no][2])
+        {
 					$urlAdd = " href=\"".$this->elementArray[$parentID][$no][2]."\"";
 					if($this->elementArray[$parentID][$no][3])$urlAdd.=" target=\"".$this->elementArray[$parentID][$no][3]."\"";	
 				}
@@ -297,9 +318,6 @@ Owner of DHTMLgoodies.com
 			}			
 		}		
 	}
-	
-	
 }
-
 
 ?>

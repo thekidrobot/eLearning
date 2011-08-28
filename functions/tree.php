@@ -38,7 +38,7 @@
           $activo=$objPermisos->Consulta_Subgrupo($IdUsuario,$IdSubGrupo);
           if ($activo>0)
           {
-            $tree->addToArray($IdCategorias.$IdGrupos.$IdSubGrupo,$NombreSubGrupo,$IdCategorias.$IdGrupos,"consultainfo.php?IdSubGrupo=".$IdSubGrupo,"marco","images/dhtmlgoodies_sheet.gif");
+            $tree->addToArray($IdCategorias.$IdGrupos.$IdSubGrupo,$NombreSubGrupo,$IdCategorias.$IdGrupos,"consultainfo.php?IdSubGrupo=".$IdSubGrupo,"marco","images/arrow.png");
           }// if subgrupos
          }
         }//if grupos
