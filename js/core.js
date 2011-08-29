@@ -1,144 +1,128 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////
 function validarExamen()
 {
-var resp;
-
-resp=confirm("Si está seguro de sus respuestas por favor haga click en Aceptar, de lo contrario haga las correcciones necesarias para proceder.");
-
-if(resp)
- {
-	 return true; 
- }
-else
- {
-	return false; 
- }
+	var resp;
+	resp=confirm("Si está seguro de sus respuestas por favor haga click en Aceptar, de lo contrario haga las correcciones necesarias para proceder.");
+	if(resp)
+	{
+		return true; 
+	}
+	else
+	{
+		return false; 
+	}
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
 function validarNuevoUsuario()
 {
-if(document.formProceso.valorNombre.value=="")
- {
-	alert("Ingrese el nombre");
-	return false; 
- }
+	if(document.formProceso.valorNombre.value=="")
+	{
+		alert("Ingrese el nombre");
+		return false; 
+	}
 
-if(document.formProceso.valorLogin.value=="")
- {
-	alert("Ingrese el login");
-	return false; 
- }
+	if(document.formProceso.valorLogin.value=="")
+	{
+		alert("Ingrese el login");
+		return false; 
+	}
 
-if(document.formProceso.valorClave.value=="")
- {
-	alert("Ingrese la clave");
-	return false; 
- }
-
-
-return true;
+	if(document.formProceso.valorClave.value=="")
+	{
+		alert("Ingrese la clave");
+		return false; 
+	}
+	return true;
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
 function validaRespModuloTall()
 {
-if(document.formProceso.valorResp.value=="")
- {
-	alert("Ingrese la respuesta");
-	return false; 
- }
-
-return true;
+	if(document.formProceso.valorResp.value=="")
+	{
+		alert("Ingrese la respuesta");
+		return false; 
+	}
+	return true;
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
 
 function validaPreguntaTaller()
 {
-if(document.formProceso.valorPregunta.value=="")
- {
-	alert("Ingrese la pregunta");
-	return false; 
- }
-
-return true;
+	if(document.formProceso.valorPregunta.value=="")
+	{
+		alert("Ingrese la pregunta");
+		return false; 
+	}	
+	return true;
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
 function validarModulos()
 {
-if(document.formProceso.valorTitulo.value=="")
- {
-	alert("Ingrese el nombre del modulo");
-	return false; 
- }
-
-if(document.formProceso.valorNotaMax.value=="")
- {
-	alert("Ingrese la calificiación máxima");
-	return false; 
- }
-
-if(isNaN(document.formProceso.valorNotaMax.value))
- {
-	alert("Calificación máxima invalida");
-	return false; 
- }
-
-if(parseInt(document.formProceso.valorNotaMax.value)<=0)
- {
-	alert("Calificación máxima invalida");
-	return false; 
- }
-
-
-if(document.formProceso.valorNotaMIn.value=="")
- {
-	alert("Ingrese la calificiación mínima de aprobación");
-	return false; 
- }
-
-if(isNaN(document.formProceso.valorNotaMIn.value))
- {
-	alert("Calificación mínima de aprobación invalida");
-	return false; 
- }
-
-if(parseInt(document.formProceso.valorNotaMIn.value)<=0)
- {
-	alert("Calificación mínima de aprobación invalida");
-	return false; 
- }
-
-if(parseInt(document.formProceso.valorNotaMIn.value)>=parseInt(document.formProceso.valorNotaMax.value))
- {
-	alert("Calificación mínima de aprobación no puede ser mayor ni igual a la calificación máxima");
-	return false; 
- }
-
-
-
-return true;	
+	if(document.formProceso.valorTitulo.value=="")
+	{
+		alert("Ingrese el nombre del modulo");
+		return false; 
+	}
+	if(document.formProceso.valorNotaMax.value=="")
+	{
+		alert("Ingrese la calificiación máxima");
+		return false; 
+	}
+	if(isNaN(document.formProceso.valorNotaMax.value))
+	{
+		alert("Calificación máxima invalida");
+		return false; 
+	}
+	if(parseInt(document.formProceso.valorNotaMax.value)<=0)
+	{
+		alert("Calificación máxima invalida");
+		return false; 
+	}
+	if(document.formProceso.valorNotaMIn.value=="")
+	{
+		alert("Ingrese la calificiación mínima de aprobación");
+		return false; 
+	}
+	if(isNaN(document.formProceso.valorNotaMIn.value))
+	{	
+		alert("Calificación mínima de aprobación invalida");
+		return false; 
+	}
+	if(parseInt(document.formProceso.valorNotaMIn.value)<=0)
+	{
+		alert("Calificación mínima de aprobación invalida");
+		return false; 
+	}
+	if(parseInt(document.formProceso.valorNotaMIn.value)>=parseInt(document.formProceso.valorNotaMax.value))
+	{
+		alert("Calificación mínima de aprobación no puede ser mayor ni igual a la calificación máxima");
+		return false; 
+	}
+	return true;	
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
 function validarTaller()
 {
-if(document.formProceso.valorTitulo.value=="")
- {
-	alert("Ingrese el nombre del taller");
-	return false; 
- }
-return true;	
+	if(document.formProceso.valorTitulo.value=="")
+	{
+		alert("Ingrese el nombre del taller");
+		return false; 
+	}
+	return true;	
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
-function BotonDerecho(e) {
-   var mensaje = "Función desactivada.";
-   if (navigator.appName == 'Netscape' && e.which == 3) {
-      alert(mensaje);
-      return false;
-   } else if (navigator.appName == 'Microsoft Internet Explorer' && event.button == 2) {
-      alert(mensaje);
-      return false;
-   }
-   
-   return true
+
+function BotonDerecho(e)
+{
+  var mensaje = "Función desactivada.";
+  if (navigator.appName == 'Netscape' && e.which == 3)
+	{
+		alert(mensaje);
+    return false;
+  }
+	else if (navigator.appName == 'Microsoft Internet Explorer' && event.button == 2)
+	{
+		alert(mensaje);
+		return false;
+  }
+  return true
 }
 
 //Netscape: para que capture TODOS los eventos de este
@@ -267,7 +251,7 @@ if(parseInt(document.formProceso.valorCalificacion.value)<=0)
 return true;	
 	
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
 function validaCambioClave()
 {
 if(document.formProceso.valorClave.value=="")	
@@ -278,7 +262,7 @@ if(document.formProceso.valorClave.value=="")
 
 return true;	
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
 function validaAcceso()
 {
 if(document.formProceso.valorLogin.value=="")	
@@ -294,9 +278,5 @@ if(document.formProceso.valorClave.value=="")
 
 return true;
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
+

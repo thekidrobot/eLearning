@@ -1,7 +1,5 @@
 <?
 session_start(); 
-$_SESSION["usuarioBD"] = "";
-$_SESSION["claveBD"] = "";
 
 $_SESSION["basededatos"] = "evaluaciones";
 $_SESSION["servidor"] = "localhost";
