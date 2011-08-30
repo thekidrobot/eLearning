@@ -1,56 +1,15 @@
 <?php 
-	include("includes/connection.php");
-	include("includes/formvalidator.php");
-	include("clases/clsusuario.php");
-
-	$objUsuario=new clsusuario();
-
-	if (!isset($_SESSION))
-	{
-		session_start();
-	}
-
-	if (!function_exists("GetSQLValueString"))
-	{
-		function GetSQLValueString($tdeValue, $tdeType, $tdeDefinedValue = "", $tdeNotDefinedValue = "") 
-		{
-			$tdeValue = get_magic_quotes_gpc() ? stripslashes($tdeValue) : $tdeValue;
-			$tdeValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($tdeValue) : mysql_escape_string($tdeValue);
-		
-			switch ($tdeType)
-			{
-				case "text":
-					$tdeValue = ($tdeValue != "") ? "'" . $tdeValue . "'" : "NULL";
-					break;    
-				case "long":
-				case "int":
-					$tdeValue = ($tdeValue != "") ? intval($tdeValue) : "NULL";
-					break;
-				case "double":
-					$tdeValue = ($tdeValue != "") ? "'" . doubleval($tdeValue) . "'" : "NULL";
-					break;
-				case "date":
-					$tdeValue = ($tdeValue != "") ? "'" . $tdeValue . "'" : "NULL";
-					break;
-				case "defined":
-					$tdeValue = ($tdeValue != "") ? $tdeDefinedValue : $tdeNotDefinedValue;
-					break;
-			}
-			return $tdeValue;
-		}
-	}
+	include("functions/login_functions.php");
 
 	$postArray = &$_POST ;
-	$submit = $postArray['Register'];
-	$fullname = $postArray['fullname'];
-	$email = $postArray['email'];
-	$company = $postArray['company'];
-	$country = $postArray['country'];
-	$city = $postArray['city'];
-	$login = $postArray['login'];
-	$password = $postArray['password'];
-	$password2 = $postArray['password2'];
-	$captcha = $postArray['captcha'];
+	$submit = escape_value($postArray['Register']);
+	$fullname = escape_value($postArray['fullname']);
+	$email = escape_value($postArray['email']);
+	$company = escape_value($postArray['company']);
+	$login = escape_value($postArray['login']);
+	$password = escape_value($postArray['password']);
+	$password2 = escape_value($postArray['password2']);
+	$captcha = escape_value($postArray['captcha']);
 
 	$msg = '';
 
@@ -60,8 +19,6 @@
 		$validator = new FormValidator();
 		$validator->addValidation("fullname","req","Please fill in Name");
 		$validator->addValidation("company","req","Please fill in Company");
-		$validator->addValidation("country","req","Please choose a Country");
-		$validator->addValidation("city","req","Please fill in City");
 		$validator->addValidation("login","email","The input for Email should be a valid email value");
 		$validator->addValidation("login","req","Please fill in Login");
 		$validator->addValidation("password","req","Please fill in password");
@@ -75,20 +32,26 @@
 			if(isset($_POST["captcha"]))
 			if($_SESSION["captcha"]==$_POST["captcha"])
 			{
-				//Validar si el login ya existe
+				$mailAlreadyRegistered = 0;
 				
-				$objUsuario->ingresarUsuario($login,$password,$fullname,$company,$user);
-				$msg = "User Registered Sucessfully. <a href'index.php'>Login</a>";
+				$mailAlreadyRegistered = $objUsuario->consultarUsuarioExistente($login);
+				if($mailAlreadyRegistered>0)
+				{
+					$msg = "This login name is already taken.";
+				}
+				else
+				{
+					$objUsuario->ingresarUsuario($login,$password,$fullname,$company,$user);
+					$msg = "User Registered Sucessfully. <a href = 'index.php'>Login</a>";					
+				}
 			}
 			else
 			{
-				$msg = "Captcha not valid<br/>\n";
+				$msg.= "Captcha not valid<br/>\n";
 			}
 		}
 		else
 		{
-			echo "<p><h2>Please Complete the following:</h2>";
-	
 			$error_hash = $validator->GetErrors();
 			foreach($error_hash as $inpname => $inp_err)
 			{
@@ -110,7 +73,7 @@
 	{
 		p=document.getElementById('login');
 		if(p.value=='') alert('ingrese un nombre de usuario v&aacute;lido');
-		else invocaGenericoPost("apodo","usrCompruebaApodo.php","Usuario="+p.value,"Comprobando disponibilidad...");
+		else invocaGenericoPost("apodo","usrCompruebaApodo.php","Usuario="+p.value,"Checking...");
 	}
 	</script>
 	<link rel="stylesheet" href="css/style.css">
@@ -118,7 +81,7 @@
 <body>
 	<div id="header">
 		<div id="logo">
-      <h1><a href="#">Compromise </a></h1>
+      <h1><a href="#">Compromise</a></h1>
     </div>
   </div>
   <!-- end #header -->
@@ -143,29 +106,9 @@
 								<td><input name="company" type="text" id="company" value="<?=$company?>"/></td>
 							</tr>
 							<tr>
-								<td><b>Country <span>*</span></b></td>
-								<td>
-									<select name="country" id="country">
-										<option value="Argentina">Argentina</option>
-										<option value="Bolivia">Bolivia</option>
-										<option value="Brasil">Brasil</option>
-										<option value="Colombia">Colombia</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td><b>City <span>*</span></b></td>
-								<td>
-									<input name="city" type="text" id="city" value="<?=$city ?>" />
-								</td>
-							</tr>
-							<tr>
 								<td>Email (Will be also your login) <span>*</span></td>
 								<td>
-									<input name="login" type="text" id="login" value="<?=$login?>" />
-									<label>
-										<input name="check" type="button" id="check" value="Check Availability" onclick="javascript:mirar();" />
-									</label>
+									<input name="login" type="text" id="login" value="<?=$login?>" onchange="javascript:mirar();" />
 									<div id="apodo" align="left">&nbsp;</div>
 								</td>
 							</tr>
@@ -184,14 +127,17 @@
 							<tr>
 								<td><b>Captcha (Only black Symbols)</b></td>
 								<td>
-									<img src="captcha.php" align="left" />
+									<div align="left"><img src="captcha.php" align="left" /></div>&nbsp;&nbsp;
 									<input type="text" name="captcha" maxlength="3" size="3" />
 								</td>
 							</tr>
-							<?php if (trim($msg)!=''){ ?>
+							<?php
+							if (trim($msg)!='')
+							{
+							?>
 							<tr align="center">
 								<td colspan="2">
-									<span><?=$msg?></span></div>
+									<span><?=$msg?></span>
 								</td>
 							</tr>
 							<?php
@@ -199,7 +145,7 @@
 							?>
 							<tr>
 								<td colspan="2" align="center">
-									<input name="Register" type="submit" id="submit" onclick="acepta();" value="Register" />
+									<input name="Register" type="submit" id="submit" value="Register" />
 								</td>
 							</tr>
 							</table>

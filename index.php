@@ -1,24 +1,16 @@
 <?php 
-include("includes/connection.php");
-include("includes/formvalidator.php");
-include("clases/clsusuario.php");
-
-session_start();
+include("functions/login_functions.php");
 
 $_SESSION["usuario"]="";
-// almacena el usuario en sesion
 $_SESSION["idusuario"]="";
-// almacena el id del usuario en sesion
 
-//objetos
-$objUsuario=new clsusuario();
 $msg="";
 
 $postArray = &$_POST ;
 $login = $postArray['Login'];
-$userlogin = $postArray['username'];
-$usertype = $postArray['type'];
-$userpass = $postArray['pass'];
+$userlogin = escape_value($postArray['username']);
+$usertype = escape_value($postArray['type']);
+$userpass = escape_value($postArray['pass']);
 
 if(isset($login))
 {
@@ -37,11 +29,7 @@ if(isset($login))
         //valido
         $_SESSION["usuario"]=$userlogin;
         $_SESSION["idusuario"]=$valido;
-  
-        //I cannot use the function here. Requires validation first.
-        $filename = 'admin/menuadmin.php';
-        if (!headers_sent()) header('Location: '.$filename);
-        else echo '<meta http-equiv="refresh" content="0;url='.$filename.'" />';
+        redirect('admin/menuadmin.php');
       }
       else
       {
@@ -58,11 +46,7 @@ if(isset($login))
         //valido
         $_SESSION["usuario"]=$userlogin;
         $_SESSION["idusuario"]=$valido;
-        
-        //I cannot use the function here. Requires validation first.
-        $filename = 'usexamen.php';
-        if (!headers_sent()) header('Location: '.$filename);
-        else echo '<meta http-equiv="refresh" content="0;url='.$filename.'" />';
+        redirect('usexamen.php');
       }
       else
       {
@@ -78,10 +62,6 @@ if(isset($login))
       $msg.="$inp_err<br/>\n";
     }
   }
-  
-  
-  
-  
 }
 
 ?>
@@ -138,7 +118,10 @@ if(isset($login))
                 }
                 ?>
                 <tr>
-                  <td colspan="2" align="center" class="tahoma_11">Not registered yet? <a href="registro.php">Register</a></td>
+                  <td colspan="2" align="center">Not registered yet? <a href="registro.php">Register</a></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center"><a href="recuperarPass.php">Forgot your password?</a></td>
                 </tr>
               </table>
             </form>

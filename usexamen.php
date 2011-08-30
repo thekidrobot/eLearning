@@ -19,25 +19,9 @@ $RowUsuario=mysql_fetch_assoc($RSUsuario);
 <?php include("includes/head.php"); ?>
 
 <body>
- <div id="header">
-	<div id="logo">
-	 <h1><a href="#">Compromise </a></h1>
-	  <p>
-		 Welcome <?=$RowUsuario['NombreCompleto'] ?> - <a href="index.php">Logout</a>
-		</p>
-	 </div>
-	</div>
+	<?php include("includes/logo.php") ?>
 	<!-- end #header -->
-	<div id="menu">
-	 <ul>
-	  <li class="first"><a href="#">Home</a></li>
-		<li><a href="ushistorial.php">Catalog</a></li>
-		<li><a href="usacceso.php">My progress</a></li>
-		<li><a href="#">Settings</a></li>
-		<li><a href="usexamen.php">Contact</a></li>
-		<li><a href="usexamen.php">Help</a></li>
-	 </ul>
-	</div>
+	<?php include("includes/top_menu.php"); ?>
 	<!-- end #menu -->
 	<div id="wrapper">
 	 <div class="btm">
@@ -61,9 +45,6 @@ $RowUsuario=mysql_fetch_assoc($RSUsuario);
 	<!-- end #page -->
 </div>
 </div>
-	<div id="footer">
-		<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
-	</div>
-	<!-- end #footer -->
+ <?php include("includes/footer.php"); ?>
 </body>
 </html>

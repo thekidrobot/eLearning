@@ -1,5 +1,4 @@
 <?
-
 include("ps_pagination.php");
 
 class clsusuario
@@ -38,7 +37,7 @@ class clsusuario
 
 	$this->connect($this->dbhost, $this->dbuser,$this->dbpass,$this->dbname);
 
-	$sql="SELECT * FROM administrador WHERE Clave='" . $Clave . "' AND Login='" . $Usuario . "' ";
+	$sql="SELECT * FROM administrador WHERE Clave='" . md5($Clave) . "' AND Login='" . $Usuario . "' ";
 	$result = $this->query($sql);
 	
 	while ($row = mysql_fetch_array($result))
@@ -54,7 +53,7 @@ class clsusuario
   $valido=0;
 	$this->connect($this->dbhost, $this->dbuser,$this->dbpass,$this->dbname);
 
-	$sql="SELECT * FROM usuarios WHERE Password='" . $Clave . "' AND Usuario='" . $Usuario . "' ";
+	$sql="SELECT * FROM usuarios WHERE Password='" . md5($Clave) . "' AND Usuario='" . $Usuario . "' ";
 	$result = $this->query($sql);
  
 	while ($row = mysql_fetch_array($result))
@@ -90,10 +89,12 @@ class clsusuario
  }
  
  //-----------------------------------------------------------------------------
- function actualizarClaveUsuario($Login,$Clave,$Correo)
+ function actualizarDatosUsuario($Clave,$NombreCompleto,$Empresa,$Login)
  {
 	$this->connect($this->dbhost, $this->dbuser,$this->dbpass,$this->dbname);
-	$sql="update usuarios set Password='$Clave', Correo = '$Correo',Usuario='$Correo' where Usuario='".$Login."' ";
+	$sql="update usuarios
+				set Password='$Clave',NombreCompleto = '$NombreCompleto',
+				Empresa = '$Empresa', Correo = '$Login' where Usuario='$Login'";
 	$result = $this->query($sql);
  }
 
@@ -171,6 +172,16 @@ class clsusuario
 	$sql="update usuarios set Usuario='".$Usuario."',NombreCompleto='".$NombreCompleto."',Password='".$Password."' where IdUsuario=".$IdUsuario;
 	$result = $this->query($sql);
  }
+ 
+ //-----------------------------------------------------------------------------
+ function consultarUsuarioExistente($correo)
+ {
+  $this->connect($this->dbhost, $this->dbuser,$this->dbpass,$this->dbname);
+	$sql = "SELECT Correo FROM usuarios WHERE Correo = '$correo'";
+	$result = $this->query($sql);
+	$correoExistente = mysql_num_rows($result);
+	return $correoExistente;
+ } 
 
  //-----------------------------------------------------------------------------
  function borrarUsuario($IdUsuario)

@@ -29,7 +29,7 @@ function traerDatos(grupo,nombre)
 	// Creo el objeto AJAX
 	var ajax=nuevoAjax();
 	// Coloco el mensaje "Cargando..." en la capa
-	capa.innerHTML="Cargando...";
+	capa.innerHTML="Loading...";
 	// Abro la conexión, envío cabeceras correspondientes al uso de POST y envío los datos con el método send del objeto AJAX
 	ajax.open("POST", "filtrarUsuario.php", true);
 	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

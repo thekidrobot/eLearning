@@ -1,19 +1,11 @@
 <?php
-session_start();
 include("includes/connection.php");
+include("includes/formvalidator.php");
 
-// Shows the name of the script in execution, used by menus and custom scripts
-$file = $_SERVER["SCRIPT_NAME"];
-$break = Explode('/', $file);
-$curr_page = $break[count($break) - 1];
+include("clases/clsusuario.php");
+$objUsuario=new clsusuario();
 
-//Validate login
-if($_SESSION["usuario"]=="")
-{
- redirect('index.php'); 
-}
-
-$website_name = "My eLearning Site";
+session_start();
 
 //Safely Redirects
 function redirect($filename)
@@ -25,8 +17,8 @@ function redirect($filename)
 //Safely escape values. Please use in your SQL queries. 
 function escape_value($value)
 {
- 	$value = trim($value);
- 
+	$value = trim($value);
+	
   if(function_exists('mysql_real_escape_string'))
   {
     if(get_magic_quotes_gpc())
@@ -43,6 +35,19 @@ function escape_value($value)
     }
   }
   return $value;
+}
+
+//Random Password Generator
+function genRandomString()
+{
+    $length = 12;
+    $characters = "0123456789abcdefghijklmnopqrstuvwxyz";
+    $string = '';    
+
+    for ($p = 0; $p < $length; $p++) {
+        $string .= $characters[mt_rand(0, strlen($characters))];
+    }
+    return $string;
 }
 
 ?>
