@@ -1,6 +1,5 @@
 <?
-include("../includes/connection.php");
-include("session.php");
+ include("session.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -28,24 +27,24 @@ include("session.php");
   } 
  </script>
   
-   <script language="javascript">
-   function seleccionar_todo_usr()
-   {
-    for (i=0;i<document.f1.elements.length;i++)
-    if(document.f1.elements[i].type == "checkbox" && document.f1.elements[i].id == "usuario")
-    document.f1.elements[i].checked=1
-   } 
+ <script language="javascript">
+  function seleccionar_todo_usr()
+  {
+   for (i=0;i<document.f1.elements.length;i++)
+   if(document.f1.elements[i].type == "checkbox" && document.f1.elements[i].id == "usuario")
+   document.f1.elements[i].checked=1
+  } 
  
-   function deseleccionar_todo_usr()
-   {
-    for (i=0;i<document.f1.elements.length;i++)
-    if(document.f1.elements[i].type == "checkbox" && document.f1.elements[i].id == "usuario")
-    document.f1.elements[i].checked=0
-   } 
+  function deseleccionar_todo_usr()
+  {
+   for (i=0;i<document.f1.elements.length;i++)
+   if(document.f1.elements[i].type == "checkbox" && document.f1.elements[i].id == "usuario")
+   document.f1.elements[i].checked=0
+  } 
  </script> 
 
  <script type="text/javascript" src="../js/datepicker.js">{"describedby":"fd-dp-aria-describedby"}</script>
  <link href="../css/datepicker.css" rel="stylesheet" type="text/css" /> 
 
- <script language="javascript" src="../js/js.js"></script>
+ <script language="javascript" src="../js/core.js"></script>
 </head>

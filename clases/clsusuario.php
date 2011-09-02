@@ -103,13 +103,10 @@ class clsusuario
  {
 	$this->connect($this->dbhost, $this->dbuser,$this->dbpass,$this->dbname);
 	$sql = "SELECT * FROM  usuarios order by NombreCompleto";
-	
 	$pager = new PS_Pagination($link, $sql, 100, 5);
 	$result = $pager->paginate();
-
-	//$result = $this->query($sql);
-
 	?><div align="center"> <?php echo $pager->renderFullNav(); ?> </div><br/> <?php
+	$result = $this->query($sql);
 	return $result;
  }
 
@@ -425,7 +422,7 @@ class clsusuario
 	$pager = new PS_Pagination($link, $sql, 100, 5);
 	$result = $pager->paginate();
 	?><div align="center"> <?php echo $pager->renderFullNav(); ?> </div><br/> <?php
-	//$result = $this->query($sql);
+	$result = $this->query($sql);
 	return $result;
  }
  

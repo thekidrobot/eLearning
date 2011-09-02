@@ -27,25 +27,25 @@ if($_POST["ingresar"]!="")
    $largo=strlen($nombre);
    if ($largo>1)
    {
-	$tipo=substr($nombre,0,1);
-	$Id=substr($nombre,1,$largo-1);
-	switch ($tipo)
-	{
-	 case 'C':
-	  //categorias
-	  $objPermisos->Inserta_Categoria_Depto($IdDepartamento,$Id);
-	  break;	
+		$tipo=substr($nombre,0,1);
+		$Id=substr($nombre,1,$largo-1);
+		switch ($tipo)
+		{
+		 case 'C':
+		  //categorias
+		  $objPermisos->Inserta_Categoria_Depto($IdDepartamento,$Id);
+		  break;	
 	 
-	 case 'G':
-	  //grupos
-	  $objPermisos->Inserta_Grupo_Depto($IdDepartamento,$Id);
-	  break;
+		 case 'G':
+		  //grupos
+		  $objPermisos->Inserta_Grupo_Depto($IdDepartamento,$Id);
+		  break;
 		
-	 case 'S':
-	  //subgrupos
-	  $objPermisos->Inserta_Subgrupo_Depto($IdDepartamento,$Id);
-	  break;
-	}
+		 case 'S':
+		  //subgrupos
+		  $objPermisos->Inserta_Subgrupo_Depto($IdDepartamento,$Id);
+		  break;
+		}
    }
   }
  }
@@ -143,14 +143,12 @@ $msg="Usuario borrado";
  <div id="page">
   <div id="content">
    <div class="post">
-	
-   <b>Inicio >> Grupos de usuarios</b> 
-   <br>
-   <br>
-	
-   <form name="formProceso" action="<?=$_SERVER['PHP_SELF']?>" method="post">
-	<fieldset>
-	<? 
+	 <b>Inicio >> Grupos de usuarios</b> 
+   <br />
+   <br />
+	 <form name="formProceso" action="<?=$_SERVER['PHP_SELF']?>" method="post">
+	 <fieldset>
+	 <? 
     if($_GET["actualizar"]!="")
     {?>
      <input type="hidden" name="actualizar" value="<?=$_GET["actualizar"]?>">
@@ -162,18 +160,15 @@ $msg="Usuario borrado";
      <? 
     }
     ?>
-	<table width="100%">
-	 
+	 <table width="100%">
 	 <tr>
 	  <td>
 	   <span>Ingresar Grupos de usuarios</span>
 	  </td>
 	 </tr>
-	 
 	 <tr>
 	  <td>&nbsp;</td>
 	 </tr>
-	 
 	 <tr>
 	  <td>
 	   <span>Nombre: </span>
@@ -188,58 +183,58 @@ $msg="Usuario borrado";
 	   $RSresultado=$objUsuario->consultarCategorias();
 	   while ($row = mysql_fetch_array($RSresultado))
 	   {
-		$IdCategorias=$row["IdCategorias"]; 
-		@$activo=$objPermisos->Consulta_Categoria_Depto($vIdDepto,$IdCategorias);
-		if ($activo>0){$check='checked';}else{$check='';} 
-		echo '<UL><input name="C'.$IdCategorias.'" type="checkbox" value="'.$IdCategorias.'" '.$check.' >'. $row["categorias"].'<UL>';
+			$IdCategorias=$row["IdCategorias"]; 
+			@$activo=$objPermisos->Consulta_Categoria_Depto($vIdDepto,$IdCategorias);
+			if ($activo>0){$check='checked';}else{$check='';} 
+			echo '<UL><input name="C'.$IdCategorias.'" type="checkbox" value="'.$IdCategorias.'" '.$check.' >'. $row["categorias"].'<UL>';
 	   
-		//Grupos
-		$RSresultadoGrupos=$objUsuario->consultarGrupos($IdCategorias);
-		while ($rowGrupos = mysql_fetch_array($RSresultadoGrupos))
-		{
-		 $IdGrupos=$rowGrupos["IdGrupos"]; 
-		 $grupos=$rowGrupos["grupos"]; 
-		 @$activo=$objPermisos->Consulta_Grupo_Depto($vIdDepto,$IdGrupos);
-		 if ($activo>0){$check='checked';}else{$check='';} 
-		 echo '<LI><input name="G'.$IdGrupos.'" type="checkbox" value="'.$IdGrupos.'" '.$check.' >'.$grupos.'<UL>';
+			//Grupos
+			$RSresultadoGrupos=$objUsuario->consultarGrupos($IdCategorias);
+			while ($rowGrupos = mysql_fetch_array($RSresultadoGrupos))
+			{
+			 $IdGrupos=$rowGrupos["IdGrupos"]; 
+			 $grupos=$rowGrupos["grupos"]; 
+			 @$activo=$objPermisos->Consulta_Grupo_Depto($vIdDepto,$IdGrupos);
+			 if ($activo>0){$check='checked';}else{$check='';} 
+			 echo '<LI><input name="G'.$IdGrupos.'" type="checkbox" value="'.$IdGrupos.'" '.$check.' >'.$grupos.'<UL>';
  
-		 //subGrupos
-		 $RSSubGrupo=$objSubGrupo->consultarSubGrupos($IdGrupos);
-		 while ($rowSubGrupo = mysql_fetch_array($RSSubGrupo))
-		 {
-		  $IdSubGrupo=$rowSubGrupo["IdSubGrupo"]; 
-		  $NombreSubGrupo=$rowSubGrupo["NombreSubGrupo"]; 	
-		  @$activo=$objPermisos->Consulta_Subgrupo_Depto($vIdDepto,$IdSubGrupo);
-		  if ($activo>0){$check='checked';}else{$check='';} 
-		  echo '<LI><input name="S'.$IdSubGrupo.'" type="checkbox" value="'.$IdSubGrupo.'" '.$check.' >'. $NombreSubGrupo.'</LI>';
-		 }
-		 echo '</UL></LI>';
-		}	
-		echo '</UL></UL>';
+			 //subGrupos
+			 $RSSubGrupo=$objSubGrupo->consultarSubGrupos($IdGrupos);
+			 while ($rowSubGrupo = mysql_fetch_array($RSSubGrupo))
+			 {
+			  $IdSubGrupo=$rowSubGrupo["IdSubGrupo"]; 
+			  $NombreSubGrupo=$rowSubGrupo["NombreSubGrupo"]; 	
+			  @$activo=$objPermisos->Consulta_Subgrupo_Depto($vIdDepto,$IdSubGrupo);
+				if ($activo>0){$check='checked';}else{$check='';} 
+				echo '<LI><input name="S'.$IdSubGrupo.'" type="checkbox" value="'.$IdSubGrupo.'" '.$check.' >'. $NombreSubGrupo.'</LI>';
+			 }
+			 echo '</UL></LI>';
+			}	
+			echo '</UL></UL>';
 	   }
 	   ?>
-	  </td>
+		 </td>
     </tr>
+
+		<tr>
+		 <td>
+			<a href="javascript:seleccionar_todo()">Marcar todos</a> | <a href="javascript:deseleccionar_todo()">Marcar ninguno</a>
+		 </td>
+		</tr>
 	
-	<tr>
-	 <td>
-	  <a href="javascript:seleccionar_todo()">Marcar todos</a> | <a href="javascript:deseleccionar_todo()">Marcar ninguno</a>
-	 </td>
-	</tr>
+	 <tr>
+		<td align="center">
+		 <input type="image" src="../imagenes/ingresar.jpg"><a href="<?=$_SERVER['PHP_SELF']?>"><img src="../imagenes/cancelar.jpg" alt="borrar" border="0" /></a>
+		</td>
+	 </tr>
 	
-	<tr>
-     <td align="center">
-      <input type="image" src="../imagenes/ingresar.jpg"><a href="<?=$_SERVER['PHP_SELF']?>"><img src="../imagenes/cancelar.jpg" alt="borrar" border="0" /></a>
-     </td>
-	</tr>
-	
-	<tr>
-	 <td>
-	  <?=$msg?>
-     </td>
-    </tr>
-   </table>
-   </fieldset>
+	 <tr>
+		<td>
+		 <?=$msg?>
+    </td>
+   </tr>
+  </table>
+  </fieldset>
   </form>
    
   <br>
