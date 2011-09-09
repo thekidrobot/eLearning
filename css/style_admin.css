@@ -159,14 +159,14 @@ a:hover {
 
 #content {
 	float: left;
-	width: 660px;
-	padding: 0px 0px 0px 0px;
+	width: 680px;
+	padding: 0;
 	background: #FFFFFF;
 }
 
 .post {
 	margin-bottom: 30px;
-	padding: 0px 0px;
+	padding: 0;
 }
 
 .post .title {
@@ -198,7 +198,7 @@ a:hover {
 
 #sidebar {
 	float: right;
-	width: 300px;
+	width: 250px;
 	margin: 0px;
 	padding: 0px 0px 0px 0px;
 }

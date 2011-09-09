@@ -1,0 +1,86 @@
+!SESSION 2011-09-08 15:38:49.533 -----------------------------------------------
+eclipse.buildId=I20100608-0911
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.php.product -product org.eclipse.epp.package.php.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.php.product -data C:\Port\UniServer\www\eLearning -product org.eclipse.epp.package.php.product
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.799
+!MESSAGE System property http.proxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.799
+!MESSAGE System property http.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.814
+!MESSAGE System property https.proxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.814
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.814
+!MESSAGE System property socksProxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.830
+!MESSAGE System property socksProxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.830
+!MESSAGE System property https.proxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.830
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.846
+!MESSAGE System property socksProxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.846
+!MESSAGE System property socksProxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.861
+!MESSAGE System property socksProxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 15:39:01.861
+!MESSAGE System property socksProxyPort is not set but should be 8080.
+!SESSION 2011-09-08 19:14:36.270 -----------------------------------------------
+eclipse.buildId=I20100608-0911
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.php.product -product org.eclipse.epp.package.php.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.php.product -data C:\Port\UniServer\www\eLearning -product org.eclipse.epp.package.php.product
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.286
+!MESSAGE System property http.proxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.286
+!MESSAGE System property http.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.302
+!MESSAGE System property https.proxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.302
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.302
+!MESSAGE System property socksProxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.302
+!MESSAGE System property socksProxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.317
+!MESSAGE System property https.proxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.317
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.333
+!MESSAGE System property socksProxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.333
+!MESSAGE System property socksProxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.348
+!MESSAGE System property socksProxyHost is not set but should be proxy.tcs.com.
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-08 19:14:49.348
+!MESSAGE System property socksProxyPort is not set but should be 8080.

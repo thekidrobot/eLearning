@@ -70,7 +70,7 @@ class clsusuario
 	$valido=1;
 	$this->connect($this->dbhost, $this->dbuser,$this->dbpass,$this->dbname);
 
-	$sql="SELECT * FROM usuarios WHERE  Usuario='" . $Usuario . "' ";
+	$sql="SELECT * FROM usuarios WHERE  Usuario='" . trim($Usuario) . "' ";
 	$result = $this->query($sql);
 	
 	while ($row = mysql_fetch_array($result))
@@ -163,10 +163,16 @@ class clsusuario
  }	
  
  //-----------------------------------------------------------------------------
- function actualizarUsuario($IdUsuario,$Password,$NombreCompleto,$Usuario)
+ function actualizarUsuario($IdUsuario,$Password,$NombreCompleto,$Empresa,$Usuario)
  {
   $this->connect($this->dbhost, $this->dbuser,$this->dbpass,$this->dbname);
-	$sql="update usuarios set Usuario='".$Usuario."',NombreCompleto='".$NombreCompleto."',Password='".$Password."' where IdUsuario=".$IdUsuario;
+	$sql="update usuarios
+				set Usuario='".$Usuario."',
+				Correo='".$Usuario."',
+				NombreCompleto='".$NombreCompleto."',
+				Empresa='".$Empresa."',
+				Password='".$Password."'
+				where IdUsuario=".$IdUsuario;
 	$result = $this->query($sql);
  }
  
